@@ -79,6 +79,9 @@ vol_id=`perl -ne 'BEGIN {$v=shift}
    if(/<volumeId>(.*)<\/volumeId>/) {print "$1\n"; exit 0}' ${BACKUP_DEVICE} < din.tmp`
 rm din.tmp
 
+
+
+
 echo "creating S3 snapshot of backup volume"
 desc="`hostname -s` backup `date +'%Y%m%d'`"
 su amazon -c "${amazon_dir}/aws --xml csnap '$vol_id' --description '$desc'" > csnap.out
@@ -98,3 +101,8 @@ echo $newsnapid > "$snapid_file"
 
 echo "deleting old snapshot $snapid"
 su amazon -c "${amazon_dir}/aws delete-snapshot '$snapid'"
+
+
+
+
+###test###
