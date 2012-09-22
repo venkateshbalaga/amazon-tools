@@ -98,3 +98,5 @@ echo $newsnapid > "$snapid_file"
 
 echo "deleting old snapshot $snapid"
 su amazon -c "${amazon_dir}/aws delete-snapshot '$snapid'"
+
+###########venky############
